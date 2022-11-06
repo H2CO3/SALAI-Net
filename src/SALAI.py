@@ -86,6 +86,10 @@ if __name__ == '__main__':
     np.save(args.out_folder + '/population_ids', populations)
     np.save(args.out_folder + '/founder_ids', query_samples)
 
-    meta = get_meta_data(chm, pos, pos, n_wind, wind_size)
-    write_msp_tsv(args.out_folder, meta, predicted_classes_window, populations, query_samples)
-    msp_to_lai(args.out_folder + "/predictions.msp.tsv", pos, lai_file=args.out_folder + "/predictions.lai")
+    # The following lines are either stuck in an infinite loop or simply take an
+    # absurd amount of time for some reason that I'm too lazy to figure out.
+    # I don't need anything but the `ancestry_prediction`, `population_ids`, and `founder_ids`,
+    # so let's just skip writing metadata.
+    # meta = get_meta_data(chm, pos, pos, n_wind, wind_size)
+    # write_msp_tsv(args.out_folder, meta, predicted_classes_window, populations, query_samples)
+    # msp_to_lai(args.out_folder + "/predictions.msp.tsv", pos, lai_file=args.out_folder + "/predictions.lai")
